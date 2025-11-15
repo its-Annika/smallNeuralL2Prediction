@@ -13,10 +13,10 @@ random.seed(42)
 
 #set-up
 #dev, train, test
-mode = "train"
+mode = "test"
 audio = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/" + mode + "/audio/"
 #for train, remove this end slash
-textGrids = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_textGrids/"+ mode #+"/"
+textGrids = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_textGrids/"+ mode +"/"
 transcript = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/" + mode + "/transcripts.txt"
 output = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_vowelSlices/"+ mode + ".tsv"
 metaInfo = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/metainfo.txt"
@@ -126,8 +126,8 @@ if __name__ == "__main__":
 
     infoDict = makeInfoDict()
     speakerMap = loadTranscrip()
-   
-    print(f'number of speakers = {len(infoDict.keys())}')
+
+    print('speakers read in')
 
     notEnough = []
 
@@ -135,13 +135,13 @@ if __name__ == "__main__":
         out.write("speaker ID\tGender\tVowel\tCochleogram\tfile\n")
 
         speakerCount = 1
-        for speaker, gender, in infoDict.items():
+        for speaker, gender in infoDict.items():
 
             #for train only
-            if speaker in ['12332', '11545', '10982', '10903', '10678', '10889', '11772', '12921']:
-                continue
+            # if speaker in ['12332', '11545', '10982', '10903', '10678', '10889', '11772', '12921']:
+            #     continue
     
-            print(f'working on speaker #{speakerCount}/{len(infoDict.keys())}: {speaker}')
+            print(f'working on speaker {speaker}')
 
             speakerDict = makeSpeakerDict(speaker, speakerMap)
         
@@ -174,7 +174,7 @@ if __name__ == "__main__":
 
                 if validVowels < 50:
                     notEnough.append(speaker)
-                    raise ValueError(f"only found {validVowels} for {vowel} from {speaker}")
+                    #raise ValueError(f"only found {validVowels} for {vowel} from {speaker}")
 
 
             speakerCount += 1
