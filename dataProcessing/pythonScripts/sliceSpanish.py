@@ -80,18 +80,6 @@ def makeSpeakerDict(speaker, map):
     
     return speakerDict
 
-#sample 50 random vowels, for each vowel
-# def sampleVowels(dict, sampleNum=150):
-#     sampled = {}
-
-#     for vowel, productions in dict.items():
-#         if len(productions) <= sampleNum:
-#             sampled[vowel] = productions[:]
-#         else:
-#             sampled[vowel] = random.sample(productions, sampleNum)
-    
-#     return sampled
-
 #get the cochleogram
 #representation: a column vector which colapses time and keeps frequency
 def extract(path, startInterval, endInterval, window=30):
@@ -148,6 +136,10 @@ if __name__ == "__main__":
 
         speakerCount = 1
         for speaker, gender, in infoDict.items():
+
+            #for train only
+            if speaker in ['12332', '11545', '10982', '10903', '10678', '10889', '11772', '12921']:
+                continue
     
             print(f'working on speaker #{speakerCount}/{len(infoDict.keys())}: {speaker}')
 
@@ -174,14 +166,15 @@ if __name__ == "__main__":
                         #print(f"Skipping problematic slice: {file}, {vowel}")
                         continue
 
-                    validVowels += 1
                     cg_flat = cg.flatten()
                     cg_formated = ",".join(map(str,cg_flat))
                     out.write(f"{speaker}\t{gender}\t{vowel}\t[{cg_formated}]\t{file}\n")
+                    out.flush()                    
+                    validVowels += 1
 
                 if validVowels < 50:
                     notEnough.append(speaker)
-                    #raise ValueError(f"only found {validVowels} for {vowel} from {speaker}")
+                    raise ValueError(f"only found {validVowels} for {vowel} from {speaker}")
 
 
             speakerCount += 1
