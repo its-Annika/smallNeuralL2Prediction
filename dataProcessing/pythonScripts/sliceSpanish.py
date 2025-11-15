@@ -13,9 +13,10 @@ random.seed(42)
 
 #set-up
 #dev, train, test
-mode = "dev"
+mode = "train"
 audio = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/" + mode + "/audio/"
-textGrids = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_textGrids/"+ mode + "/"
+#for train, remove this end slash
+textGrids = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_textGrids/"+ mode #+"/"
 transcript = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/" + mode + "/transcripts.txt"
 output = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_vowelSlices/"+ mode + ".tsv"
 metaInfo = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/metainfo.txt"
@@ -36,7 +37,7 @@ def readTextGrid(textGrid):
         
         return vowelIntervals
     except FileNotFoundError:
-        print(f'{textGrid} not found.')
+        #print(f'{textGrid} not found.')
         return []
 
 #makes a dictionary with speaker metaInfo
@@ -80,16 +81,16 @@ def makeSpeakerDict(speaker, map):
     return speakerDict
 
 #sample 50 random vowels, for each vowel
-def sampleVowels(dict, sampleNum=100):
-    sampled = {}
+# def sampleVowels(dict, sampleNum=150):
+#     sampled = {}
 
-    for vowel, productions in dict.items():
-        if len(productions) <= sampleNum:
-            sampled[vowel] = productions[:]
-        else:
-            sampled[vowel] = random.sample(productions, sampleNum)
+#     for vowel, productions in dict.items():
+#         if len(productions) <= sampleNum:
+#             sampled[vowel] = productions[:]
+#         else:
+#             sampled[vowel] = random.sample(productions, sampleNum)
     
-    return sampled
+#     return sampled
 
 #get the cochleogram
 #representation: a column vector which colapses time and keeps frequency
@@ -140,18 +141,23 @@ if __name__ == "__main__":
    
     print(f'number of speakers = {len(infoDict.keys())}')
 
+    notEnough = []
+
     with open(output, "w") as out:
         out.write("speaker ID\tGender\tVowel\tCochleogram\tfile\n")
 
         speakerCount = 1
         for speaker, gender, in infoDict.items():
+    
             print(f'working on speaker #{speakerCount}/{len(infoDict.keys())}: {speaker}')
 
             speakerDict = makeSpeakerDict(speaker, speakerMap)
-            samples = sampleVowels(speakerDict)
+        
+            for vowel, items in speakerDict.items():
+                #shuffle all a speaker's productions of a vowel
+                random.shuffle(items)
 
-            for vowel, items in samples.items():
-                #some vowels throw errors, so extra we're sampled, but we still only want
+                #and we want to sample 50 of them
                 #50 per vowel per speaker
                 validVowels = 0
 
@@ -174,10 +180,13 @@ if __name__ == "__main__":
                     out.write(f"{speaker}\t{gender}\t{vowel}\t[{cg_formated}]\t{file}\n")
 
                 if validVowels < 50:
-                    raise ValueError(f"only found {validVowels} for {vowel} from {speaker}")
+                    notEnough.append(speaker)
+                    #raise ValueError(f"only found {validVowels} for {vowel} from {speaker}")
+
 
             speakerCount += 1
-
+        
+        print(notEnough)
                     
 
 
