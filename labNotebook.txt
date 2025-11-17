@@ -1,0 +1,54 @@
+Research question. Do smaller model architectures exhibit more human-like cross-linguistic speech perception? That is, can I use a small L1 neural network, which is not a speech model, to model adult, naïve cross-linguistic speech perception? 
+
+Research Plan.
+-	Languages: 
+	o	L1: Spanish. Five vowel inventory: /i e a o u/
+	o	L2 Catalan: Seven vowel inventory: /i, e, ɛ, a, ɔ, o, u/
+	o	Good starting point because /i a u o/ should act as a control (be the same across languages). We then are paying attention to how Catalan /ɛ ɔ/ are assimilated to Spanish L1 categories. 
+
+-	Data Preprocessing
+	o	Spanish 
+		x	Corpus: MultiLingual LibriSpeech Corpus (read speech)
+		x	Aligner: Montreal forced aligner w/ provided Spanish model, data converted to 16 kHz
+	o	Catalan 
+		x	Corpus: Crowdsourced high-quality dataset SLR69 (read speech)
+		x	Aligner: Montreal forced aligner w/ Vargo’s Catalan model (trained on Parliament corpus), data converted to 16 kHz
+			•	Corpus contained 6618 OOV. I aligned these with Vargo’s g2p model, and added them to the dictionary
+o	Extract Vowels
+	x	Extraction
+		•	Randomly choose 50 productions, per vowel, per speaker
+		•	Extract vowels from textGrids (with praatio)
+		•	Take a 30 ms slice of vowels at the 1/3 point 
+		•	Convert to cochleagrams (with pycochleagram)
+			o	cg = cochleagram.cochleagram(
+			o	        segment_t,
+			o	        sr,
+			o	        n=80,
+			o	        low_lim=50,
+			o	        hi_lim=8000,
+			o	        sample_factor=4,
+			o	        strict=False,
+			o	        )
+		•	Reduce dimensionality by averaging over the time dimension. The result is a (1x80) column vector, where 80 represents the filler bank.
+
+	x	Inclusion Criteria
+		•	Files that the Montral Forced Aligner could not straightforwardly align were thrown out
+		•	Vowels that were too short, threw broadcasting errors during the Hilbert Transform, or threw divide by zero in log10 errors were thrown out
+		•	For Spanish, speakers who produced less than 50 valid instances of any vowel were thrown out (n=13, from train only)
+			o	['12332' (F), '11545'(F), '10903(F)', '10678(F)', '10889(F)', '11772(F)', '12921(F)', '3553(M)', '2939(F)', '3578(M)', '11247(F)', '10976'(M), '8886(F)']
+
+		•	For Catalan, speakers who produced less than 20 valid instances of any vowel were thrown out (n=9)
+			o	['08106'(F), '06042'(F),'06008(F)', '04247(F)', '09796(F)', '08001(F)', '00762'(F), '06582(M)', '04484(M)']
+
+
+o	Split details
+	x	Spanish
+		•	Used LibriSpeech splits
+			o	train: 18,252 vowels, 3650 per vowel, 73 speakers (M=33, F=40)
+			o	test: 5000 vowels, 1000 per vowel, 20 speakers (M=10, F=10)
+			o	dev: 5000 vowels, 1000 per vowel, 20 speakers (M=10, F=10)
+	x	Catalan
+		•	Used the entire corpus
+			o	test: 3780, 450 per vowel, 27 speakers (M=13, F=14)
+
+
