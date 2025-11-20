@@ -13,6 +13,8 @@ warnings.filterwarnings("ignore", message="divide by zero encountered in log10")
 home = os.path.dirname(os.path.abspath(__file__))
 
 
+#slicing works
+
 def extract(path, startInterval, endInterval, window=30):
     #args in miliseconds
     
@@ -25,22 +27,31 @@ def extract(path, startInterval, endInterval, window=30):
 
     #slice
     #get the duration in MS
-    duration = (endInterval-startInterval) / 1000
+    duration = (endInterval-startInterval)
+    print(f'duration:{duration}')
 
     #figure out, in ms, where the 1/3 point of the vowel is
     startMS = startInterval + (duration/3)
+    print(f'startMs:{startMS}')
 
     #figure out how many frames will be in a 30 ms window based on the sr
     framesInSlice = sr * (window/1000)
+    print(f'framesInSlice:{framesInSlice}')
 
     #convert the starting point to a frame index
-    startFrame = int(startMS * sr)
+    startFrame = int(startMS * (sr/1000))
+    print(f'startFrame:{startFrame}')
 
     #find the ending index
     endFrame = int(startFrame+framesInSlice)
+    print(f'endFrame:{endFrame}')
 
-    #convert the endFrame back into MS, check that the slice didn't exceed the vowel length
-    if endInterval < (endFrame * (1000/sr)):
+    #find the ending time in ms
+    endMS = endFrame/(sr/1000)
+    print(f'endMS:{endMS}')
+
+    # check that the slice didn't exceed the vowel length
+    if endInterval < endMS:
         raise ValueError(f"Attemped to slice. Vowel not long enough")
 
     segment = loud_norm_audio[startFrame:endFrame]
@@ -52,22 +63,20 @@ def extract(path, startInterval, endInterval, window=30):
         n=24,
         low_lim=50,
         hi_lim=8000,
-        sample_factor=2,
+        sample_factor=1,
         strict=False,
         )
     
-    print(cg)
-    print(cg.shape)
-    return
-    
     #average over the time dimension
-    cg_tensor = torch.tensor(cg, dtype=torch.float32).unsqueeze(0).unsqueeze(0)
-    cg_column = F.adaptive_avg_pool2d(cg_tensor, (80, 1)).squeeze().numpy()
-
+    cg_column = np.mean(cg, axis=1)
+    np.savetxt('2000Hz.csv', cg_column, delimiter=',')
     return(cg_column)
 
 if __name__ == "__main__":
     sin70 = os.path.join(home, "testAudio", "sin_70Hz.wav")
     sin440 = os.path.join(home, "testAudio", "sin_440Hz.wav")
+    sin440Sil = os.path.join(home, "testAudio", "440HZWithSilence.wav")
+    sin100Sil = os.path.join(home, "testAudio", "100HZWithSilence.wav")
+    sin2000Sil = os.path.join(home, "testAudio", "2000HzWithSilence.wav")
 
-    extract(sin70, 0, 3000)
+    extract(sin2000Sil, 2000, 3000)
