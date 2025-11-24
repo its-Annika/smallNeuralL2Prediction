@@ -7,8 +7,8 @@ import os
 import pyloudnorm as pyln
 import warnings
 
-#can ignore divide by zero warnings, as some frequencies may be 0
-warnings.filterwarnings("ignore", message="divide by zero encountered in log10")
+#check what pycochleagram you're using
+os.path.abspath(cochleagram.__file__)
                         
 home = os.path.dirname(os.path.abspath(__file__))
 
@@ -23,7 +23,7 @@ def extract(path, startInterval, endInterval, window=30):
     #root mean squared normalization
     meter = pyln.Meter(sr)
     loudness = meter.integrated_loudness(audio)
-    loud_norm_audio = pyln.normalize.loudness(audio, loudness, -12.0)
+    loud_norm_audio = pyln.normalize.loudness(audio, loudness, -25.0)
 
     #slice
     #get the duration in MS
@@ -66,17 +66,17 @@ def extract(path, startInterval, endInterval, window=30):
         sample_factor=1,
         strict=False,
         )
-    
+
     #average over the time dimension
     cg_column = np.mean(cg, axis=1)
-    np.savetxt('2000Hz.csv', cg_column, delimiter=',')
+    np.savetxt('440Hz.csv', cg_column, delimiter=',')
     return(cg_column)
 
 if __name__ == "__main__":
-    sin70 = os.path.join(home, "testAudio", "sin_70Hz.wav")
-    sin440 = os.path.join(home, "testAudio", "sin_440Hz.wav")
     sin440Sil = os.path.join(home, "testAudio", "440HZWithSilence.wav")
-    sin100Sil = os.path.join(home, "testAudio", "100HZWithSilence.wav")
     sin2000Sil = os.path.join(home, "testAudio", "2000HzWithSilence.wav")
+    sin100Sil = os.path.join(home, "testAudio", "100HZWithSilence.wav")
+    sin70Sil = os.path.join(home, "testAudio", "70HzWithSilence.wav")
+    sin6500Sil = os.path.join(home, "testAudio", "6500HzWithSilence.wav")
 
-    extract(sin2000Sil, 2000, 3000)
+    extract(sin440Sil, 2000, 3000)
