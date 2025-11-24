@@ -6,8 +6,14 @@ import torch
 from pycochleagram import cochleagram
 import torch.nn.functional as F
 import numpy as np
+import pyloudnorm as pyln
 import warnings
-warnings.filterwarnings("ignore", category=RuntimeWarning)
+import logging
+import os
+#warnings.filterwarnings("ignore", category=RuntimeWarning)
+
+#check what pychochleagram you're using
+#print(os.path.abspath(cochleagram.__file__))
 
 random.seed(42)
 
@@ -21,6 +27,10 @@ transcript = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/" + mode + "
 output = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_vowelSlices/"+ mode + ".tsv"
 metaInfo = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/metainfo.txt"
 vowels = ['a', 'e', 'i', 'o', 'u']
+
+#start a log
+logging.basicConfig(filename=mode+'warnings.log', level=logging.WARNING,force=True)
+logging.captureWarnings(True)
 
 
 #functions 
@@ -82,41 +92,60 @@ def makeSpeakerDict(speaker, map):
 
 #get the cochleogram
 #representation: a column vector which colapses time and keeps frequency
-def extract(path, startInterval, endInterval, window=30):
+def extract(path, startInterval, endInterval, vowel, window=30):
+    
+    #args in miliseconds
+
+    #convert to miliseconds
+    startInterval *= 1000
+    endInterval *= 1000
     
     audio, sr = librosa.load(path, sr=None)
-
-    #normalize the audio
-    norm = max(abs(audio))
-    if norm > 0:
-        audio = audio / norm
+ 
+    #root mean squared normalization
+    meter = pyln.Meter(sr)
+    loudness = meter.integrated_loudness(audio)
+    loud_norm_audio = pyln.normalize.loudness(audio, loudness, -25.0)
 
     #slice
-    duration = endInterval-startInterval
-    startSlice = startInterval + (duration/3)
-    endSlice  = startSlice + (window / 1000)
+    #get the duration in MS
+    duration = (endInterval-startInterval)
 
-    if endSlice > endInterval:
-        raise ValueError(f"Slice endpoint {endSlice:.4f}s exceeds vowel end {endInterval:.4f}s")
+    #figure out, in ms, where the 1/3 point of the vowel is
+    startMS = startInterval + (duration/3)
 
-    segment = audio[int(startSlice*sr):int(endSlice*sr)]
-    segment_t = torch.tensor(segment, dtype=torch.float32).unsqueeze(0)
+    #figure out how many frames will be in a 30 ms window based on the sr
+    framesInSlice = sr * (window/1000)
+
+    #convert the starting point to a frame index
+    startFrame = int(startMS * (sr/1000))
+
+    #find the ending index
+    endFrame = int(startFrame+framesInSlice)
+
+    #find the ending time in ms
+    endMS = endFrame/(sr/1000)
+
+    # check that the slice didn't exceed the vowel length
+    if endInterval < endMS:
+        warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {startMS}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}.")
+        raise ValueError(f"Attemped to slice. Vowel not long enough")
+
+    segment = loud_norm_audio[startFrame:endFrame]
 
     #cochleogram
     cg = cochleagram.cochleagram(
-        segment_t,
+        segment,
         sr,
-        n=80,
+        n=24,
         low_lim=50,
         hi_lim=8000,
-        sample_factor=4,
+        sample_factor=2,
         strict=False,
         )
     
     #average over the time dimension
-    cg_tensor = torch.tensor(cg, dtype=torch.float32).unsqueeze(0).unsqueeze(0)
-    cg_column = F.adaptive_avg_pool2d(cg_tensor, (80, 1)).squeeze().numpy()
-
+    cg_column = np.mean(cg, axis=1)
     return(cg_column)
 
  
@@ -138,7 +167,7 @@ if __name__ == "__main__":
         for speaker, gender in infoDict.items():
 
             #for train only
-            # if speaker in ['12332', '11545', '10982', '10903', '10678', '10889', '11772', '12921']:
+            # if speaker in ['12332', '11545', '10903', '10678', '10889', '11772', '12921', '3553', '2939', '3578', '11247', '10976', '8886']:
             #     continue
     
             print(f'working on speaker {speaker}')
@@ -161,7 +190,7 @@ if __name__ == "__main__":
                     audioPath = f"{audio}/{pathParts[0]}/{pathParts[1]}/{file}.flac"
 
                     try:
-                        cg = extract(audioPath, start, end)
+                        cg = extract(audioPath, start, end, vowel)
                     except ValueError:
                         #print(f"Skipping problematic slice: {file}, {vowel}")
                         continue
