@@ -7,6 +7,8 @@ from pycochleagram import cochleagram
 import torch.nn.functional as F
 import numpy as np
 import warnings
+import pyloudnorm as pyln
+import logging
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 random.seed(42)
@@ -18,6 +20,9 @@ transcript = "/fs/nexus-scratch/ashankwi/phonProjectF25/catalan_slr69/allTranscr
 output = "/fs/nexus-scratch/ashankwi/phonProjectF25/catalan_vowelSlices/allSlices.tsv"
 vowels = ['a', 'e', 'i', 'o', 'u', 'ɔ', 'ɛ']
 
+#start a log
+logging.basicConfig(filename='warnings.log', level=logging.WARNING,force=True)
+logging.captureWarnings(True)
 
 #functions 
 #finds all the vowels in a textGrid
@@ -78,39 +83,59 @@ def makeSpeakerDict(speaker, map):
 #representation: a column vector which colapses time and keeps frequency
 def extract(path, startInterval, endInterval, window=30):
     
-    audio, sr = librosa.load(path, sr=None)
+     #args in miliseconds
 
-    #normalize the audio
-    norm = max(abs(audio))
-    if norm > 0:
-        audio = audio / norm
+    #convert to miliseconds
+    startInterval *= 1000
+    endInterval *= 1000
+    
+    audio, sr = librosa.load(path, sr=None)
+ 
+    #loudness normalization
+    meter = pyln.Meter(sr)
+    loudness = meter.integrated_loudness(audio)
+    loud_norm_audio = pyln.normalize.loudness(audio, loudness, -25.0)
 
     #slice
-    duration = endInterval-startInterval
-    startSlice = startInterval + (duration/3)
-    endSlice  = startSlice + (window / 1000)
+    #get the duration in MS
+    duration = (endInterval-startInterval)
 
-    if endSlice > endInterval:
-        raise ValueError(f"Slice endpoint {endSlice:.4f}s exceeds vowel end {endInterval:.4f}s")
+    #get the midpoint in ms
+    #and find in it frames
+    midpoint = startInterval + duration/2
+    midpointFrame = int(midpoint * (sr/1000))
 
-    segment = audio[int(startSlice*sr):int(endSlice*sr)]
-    segment_t = torch.tensor(segment, dtype=torch.float32).unsqueeze(0)
+    #figure out how many frames will be in half the window
+    framesInSlice = sr * ((window/2)/1000)
+
+    #find the start and the end frame
+    #15 ms off the mid point in either direction
+    startFrame = int(midpointFrame-framesInSlice)
+    endFrame = int(midpointFrame+framesInSlice)
+
+    #find the end and the start in ms
+    endMS = endFrame/(sr/1000)
+    startMS = startFrame/(sr/1000)
+
+    # check that the slice didn't exceed the vowel length
+    if endMS > endInterval or startInterval > startMS:
+        raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {startMS}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+    segment = loud_norm_audio[startFrame:endFrame]
 
     #cochleogram
     cg = cochleagram.cochleagram(
-        segment_t,
+        segment,
         sr,
-        n=80,
+        n=24,
         low_lim=50,
         hi_lim=8000,
-        sample_factor=4,
+        sample_factor=1,
         strict=False,
         )
     
     #average over the time dimension
-    cg_tensor = torch.tensor(cg, dtype=torch.float32).unsqueeze(0).unsqueeze(0)
-    cg_column = F.adaptive_avg_pool2d(cg_tensor, (80, 1)).squeeze().numpy()
-
+    cg_column = np.mean(cg, axis=1)
     return(cg_column)
 
  
@@ -131,7 +156,7 @@ if __name__ == "__main__":
         speakerCount = 1
         for speaker, gender in infoDict.items():
 
-            if speaker in ['08106', '06042','06008', '04247', '09796', '08001', '00762', '06582', '04484']:
+            if speaker in ['08106', '06042','06008', '09796', '08001', '00762', '06582', '04484']:
                 continue
     
             print(f'working on speaker {speaker}')
