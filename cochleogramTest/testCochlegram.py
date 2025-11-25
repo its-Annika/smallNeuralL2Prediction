@@ -12,7 +12,6 @@ os.path.abspath(cochleagram.__file__)
                         
 home = os.path.dirname(os.path.abspath(__file__))
 
-
 #slicing works
 
 def extract(path, startInterval, endInterval, window=30):
