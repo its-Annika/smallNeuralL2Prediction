@@ -38,7 +38,7 @@ o	Extract Vowels
 			o	['12332' (F), '11545'(F), '10903(F)', '10678(F)', '10889(F)', '11772(F)', '12921(F)', '3553(M)', '2939(F)', '3578(M)', '11247(F)', '10976'(M), '8886(F)']
 
 		•	For Catalan, speakers who produced less than 20 valid instances of any vowel were thrown out (n=9)
-			o	['08106'(F), '06042'(F),'06008(F)', '04247(F)', '09796(F)', '08001(F)', '00762'(F), '06582(M)', '04484(M)']
+			o	['08106'(F), '06042'(F),'06008(F)', '09796(F)', '08001(F)', '00762'(F), '06582(M)', '04484(M)']
 
 
 o	Split details
@@ -49,6 +49,6 @@ o	Split details
 			o	dev: 5000 vowels, 1000 per vowel, 20 speakers (M=10, F=10)
 	x	Catalan
 		•	Used the entire corpus
-			o	test: 3780, 450 per vowel, 27 speakers (M=13, F=14)
+			o	test: 3920, 560 per vowel, 28 speakers (M=13, F=15)
 
 
