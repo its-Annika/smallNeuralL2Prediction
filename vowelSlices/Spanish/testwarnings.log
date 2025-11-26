@@ -1,0 +1,66 @@
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17700.001, StartSlice: 17715.000500000002, EndInterval: 17730.0. Vowel:a, File:11168_11991_000043.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16170.000000000002, StartSlice: 16185.000500000002, EndInterval: 16200.001. Vowel:e, File:11168_9310_000002.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 4070.0000000000005, StartSlice: 4085.0, EndInterval: 4100.0. Vowel:e, File:11168_9310_000032.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 4070.0000000000005, StartSlice: 4085.0, EndInterval: 4100.0. Vowel:a, File:4096_1378_000050.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16389.999, StartSlice: 16404.999499999998, EndInterval: 16420.0. Vowel:i, File:5691_4369_000020.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 18610.001, StartSlice: 18625.0, EndInterval: 18639.999. Vowel:a, File:5691_4369_000021.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17719.999, StartSlice: 17734.999499999998, EndInterval: 17750.0. Vowel:o, File:1448_567_000034.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16100.000000000002, StartSlice: 16114.999500000002, EndInterval: 16129.999000000002. Vowel:u, File:1448_567_000004.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16440.001, StartSlice: 16455.0, EndInterval: 16469.999. Vowel:e, File:676_567_000004.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17700.001, StartSlice: 17715.000500000002, EndInterval: 17730.0. Vowel:a, File:676_567_000036.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 19110.001, StartSlice: 19125.0, EndInterval: 19139.999. Vowel:u, File:676_567_000042.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 18620.001, StartSlice: 18635.000500000002, EndInterval: 18650.0. Vowel:i, File:676_567_000052.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 680.0, StartSlice: 685.0, EndInterval: 690.0. Vowel:e, File:8585_9503_000065.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17040.001, StartSlice: 17055.000500000002, EndInterval: 17070.0. Vowel:e, File:8306_7405_000090.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 18870.001, StartSlice: 18885.000500000002, EndInterval: 18900.0. Vowel:u, File:8306_7405_000030.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+

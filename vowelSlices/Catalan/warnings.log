@@ -1,0 +1,45 @@
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 5120.0, StartSlice: 5125.0, EndInterval: 5130.0. Vowel:ɛ, File:caf_09901_01683665294.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 3700.0, StartSlice: 3705.0, EndInterval: 3710.0. Vowel:i, File:caf_03655_01607804764.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 8160.0, StartSlice: 8175.0, EndInterval: 8189.999999999999. Vowel:i, File:caf_07803_00651563478.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 2760.0, StartSlice: 2765.0, EndInterval: 2770.0. Vowel:i, File:caf_04247_01446523674.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 1980.0, StartSlice: 1995.0, EndInterval: 2009.9999999999998. Vowel:ɛ, File:caf_04247_01484566513.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 4760.0, StartSlice: 4765.0, EndInterval: 4770.0. Vowel:i, File:caf_09598_00783356285.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 1950.0, StartSlice: 1955.0, EndInterval: 1960.0. Vowel:a, File:caf_07245_01976222447.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 3030.0, StartSlice: 3035.0, EndInterval: 3040.0. Vowel:a, File:caf_09204_00344722245.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 3640.0, StartSlice: 3645.0, EndInterval: 3650.0. Vowel:u, File:cam_08935_01468410873.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 2780.0, StartSlice: 2785.0, EndInterval: 2790.0. Vowel:ɛ, File:cam_06279_00867664194.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 920.0, StartSlice: 925.0, EndInterval: 930.0. Vowel:a, File:cam_04787_00364959812.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 1240.0, StartSlice: 1245.0, EndInterval: 1250.0. Vowel:i, File:cam_03386_01753293961.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 1990.0, StartSlice: 1995.0, EndInterval: 2000.0. Vowel:u, File:cam_03386_01248242969.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceCatalan.py:122: UserWarning: Vowel too short. Couldn't slice. StartInterval: 4030.0000000000005, StartSlice: 4045.0, EndInterval: 4059.9999999999995. Vowel:u, File:cam_00459_00933654715.wav.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+

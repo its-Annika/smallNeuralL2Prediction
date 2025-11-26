@@ -1,0 +1,264 @@
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17059.999, StartSlice: 17074.999499999998, EndInterval: 17090.0. Vowel:u, File:10367_10282_000076.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16799.999, StartSlice: 16814.999499999998, EndInterval: 16830.0. Vowel:o, File:11670_10604_000104.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17350.0, StartSlice: 17364.999499999998, EndInterval: 17379.999. Vowel:o, File:13543_11991_000036.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17290.001, StartSlice: 17305.000500000002, EndInterval: 17320.0. Vowel:u, File:3719_1378_000000.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17020.0, StartSlice: 17034.999499999998, EndInterval: 17049.999. Vowel:e, File:3678_1378_000037.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16049.999, StartSlice: 16064.999499999998, EndInterval: 16079.999999999998. Vowel:o, File:3678_1378_000038.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17469.999, StartSlice: 17484.999499999998, EndInterval: 17500.0. Vowel:u, File:133_1378_000073.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/.venv/lib/python3.13/site-packages/pyloudnorm/normalize.py:62: UserWarning: Possible clipped samples in output.
+  warnings.warn("Possible clipped samples in output.")
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 2000.0, StartSlice: 2015.0, EndInterval: 2029.9999999999998. Vowel:e, File:13325_14016_000159.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16469.999, StartSlice: 16484.999499999998, EndInterval: 16500.0. Vowel:a, File:13325_14016_000035.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16309.999000000002, StartSlice: 16324.999500000002, EndInterval: 16340.0. Vowel:o, File:3796_2162_000045.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 4030.0000000000005, StartSlice: 4045.0, EndInterval: 4059.9999999999995. Vowel:u, File:6223_5079_000043.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 18629.999, StartSlice: 18644.999499999998, EndInterval: 18660.0. Vowel:a, File:6223_5079_000095.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 11960.0, StartSlice: 11965.0, EndInterval: 11970.0. Vowel:a, File:6223_5079_000082.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 17200.001, StartSlice: 17215.000500000002, EndInterval: 17230.0. Vowel:o, File:1075_567_000116.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
+WARNING:py.warnings:/fs/nexus-scratch/ashankwi/phonProjectF25/sliceSpanish.py:133: UserWarning: Vowel too short. Couldn't slice. StartInterval: 16959.999, StartSlice: 16974.999499999998, EndInterval: 16990.0. Vowel:a, File:1227_567_000050.flac.
+  raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+
