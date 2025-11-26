@@ -19,10 +19,10 @@ random.seed(42)
 
 #set-up
 #dev, train, test
-mode = "train"
+mode = "test"
 audio = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/" + mode + "/audio/"
 #for train, remove this end slash
-textGrids = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_textGrids/"+ mode #+"/"
+textGrids = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_textGrids/"+ mode +"/"
 transcript = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/" + mode + "/transcripts.txt"
 output = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish_vowelSlices/"+ mode + ".tsv"
 metaInfo = "/fs/nexus-scratch/ashankwi/phonProjectF25/mls_spanish/metainfo.txt"
@@ -130,7 +130,7 @@ def extract(path, startInterval, endInterval, vowel, window=30):
 
     # check that the slice didn't exceed the vowel length
     if endMS > endInterval or startInterval > startMS:
-        raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {startMS}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
+        raise ValueError( warnings.warn(f"Vowel too short. Couldn't slice. StartInterval: {startInterval}, StartSlice: {midpoint}, EndInterval: {endInterval}. Vowel:{vowel}, File:{path.split("/")[-1]}."))
 
     segment = loud_norm_audio[startFrame:endFrame]
 
@@ -162,7 +162,7 @@ if __name__ == "__main__":
     notEnough = []
 
     with open(output, "w") as out:
-        out.write("speaker ID\tGender\tVowel\tCochleogram\tfile\n")
+        out.write("speaker ID\tGender\tVowel\tCochleogram\tfile\tstart\tend\n")
 
         speakerCount = 1
         for speaker, gender in infoDict.items():
@@ -198,7 +198,7 @@ if __name__ == "__main__":
 
                     cg_flat = cg.flatten()
                     cg_formated = ",".join(map(str,cg_flat))
-                    out.write(f"{speaker}\t{gender}\t{vowel}\t[{cg_formated}]\t{file}\n")
+                    out.write(f"{speaker}\t{gender}\t{vowel}\t[{cg_formated}]\t{file}\t{start}\t{end}\n")
                     out.flush()                    
                     validVowels += 1
 
