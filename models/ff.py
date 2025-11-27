@@ -6,13 +6,15 @@ import ast
 from torch import optim
 from torch.utils.data import DataLoader, TensorDataset
 import numpy as np
+import csv
 
 #model
 class feedForward(nn.Module):
 
-    def __init__(self, inputDim, modelDim, numVowels):
+    #when evaling on Catalan, but the params here
+    def __init__(self, inputDim=26, modelDim=52, numVowels=5):
         
-        super().__init__()
+        super(feedForward, self).__init__()
 
         #layers
         self.ff1 = nn.Linear(inputDim, modelDim)
@@ -160,23 +162,72 @@ def readData(path):
     return TensorDataset(x,y)
 
 
+#eval on Catalan
+def EvalCatalan(model, catalanData, outPutPath):
+
+    outputRows = []
+
+    vowelDecoderMap = {0:'a',
+                       1: 'e',
+                       2: 'i',
+                       3: 'o',
+                       4: 'u',
+                       5:'ɛ',
+                       6:'ɔ'}
+    
+    #order of the vowels
+    vowelList = [vowelDecoderMap[i] for i in range(len(vowelDecoderMap))]
+
+    dataLoader = DataLoader(catalanData, 32)
+
+    with torch.no_grad():
+        for batchX, batchY in dataLoader:
+            outputs = model(batchX)
+            probs = torch.softmax(outputs, dim=1)
+            _, predicted = torch.max(outputs,1)
+
+            for i in range(batchX.size(0)):
+                goldLabel = vowelDecoderMap[batchY[i].item()]
+                predLabel = vowelDecoderMap[predicted[i].item()]
+                row = [goldLabel, predLabel] + probs[i].tolist()
+                outputRows.append(row)
+    
+    with open(outPutPath, "w", newline="") as f:
+        writer = csv.writer(f, delimiter="\t")
+        header = ["goldLabel", "predictedLabel"] + vowelList
+        writer.writerow(header)
+        writer.writerows(outputRows)
+
+
 if __name__ == "__main__":
-    train = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/train.tsv"
-    dev = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/dev.tsv"
-    test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/test.tsv"
-    train = readData(train)
-    dev = readData(dev)
+    #run this section if you're training ---------------------------------------------------------
+    # train = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/train.tsv"
+    # dev = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/dev.tsv"
+    # test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/test.tsv"
+
+    # modelPath = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/Spanish.pth"
+
+    # #process the data
+    # train = readData(train)
+    # dev = readData(dev)
+    # test = readData(test)
+
+    # #set your model args here
+    # #gridSearch to come
+    # #learning rate, numEpochs, dmodel
+    # modelArgs = [0.001, 50, 52]
+    # model = trainModel(modelArgs, train, dev)
+    # torch.save(model.state_dict(), modelPath)    
+
+
+    #run this section if you're evaluating on Catalan ---------------------------------------------------------
+    model = feedForward().double()
+    stateDict = torch.load("Spanish.pth")
+    model.load_state_dict(stateDict)
+    model.eval()
+
+    test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Catalan/allSlices.tsv"
     test = readData(test)
 
-    #set your model args here
-    #gridSearch to come
-    #learning rate, numEpochs, dmodel
-    modelArgs = [0.0001, 10, 52]
+    EvalCatalan(model, test, "CatalanPreds.tsv")
 
-    model = trainModel(modelArgs, train, dev)
-    
-
-
-    
-        
-    
