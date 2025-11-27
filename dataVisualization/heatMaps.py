@@ -33,6 +33,6 @@ print(avgProbDF)
 plt.figure(figsize=(8, 6)) # Adjust figure size as needed
 sns.heatmap(countsDF, annot=True, cmap='viridis', fmt=".0f")
 plt.title('L2 Catalan Vowel Predictions')
-plt.xlabel("Predicted Vowels")
+plt.xlabel("Predicted Spanish Vowels")
 plt.ylabel("True Catalan Vowels")
 plt.show()
