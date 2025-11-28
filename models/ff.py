@@ -159,17 +159,26 @@ def readData(path):
 
 
 #eval on Catalan
-def EvalCatalan(model, catalanData, outPutPath):
+def EvalOnData(model, catalanData, outPutPath, language):
 
     outputRows = []
 
-    vowelDecoderMap = {0:'a',
-                       1: 'e',
-                       2: 'i',
-                       3: 'o',
-                       4: 'u',
-                       5:'ɛ',
-                       6:'ɔ'}
+    if language == "C":
+        vowelDecoderMap = {0:'a',
+                        1: 'e',
+                        2: 'i',
+                        3: 'o',
+                        4: 'u',
+                        5:'ɛ',
+                        6:'ɔ'}
+        
+    elif language == "S":
+        vowelDecoderMap = {0:'a',
+                        1: 'e',
+                        2: 'i',
+                        3: 'o',
+                        4: 'u'}
+        
     
     #order of the vowels
     vowelList = [vowelDecoderMap[i] for i in range(len(vowelDecoderMap))]
@@ -201,7 +210,7 @@ if __name__ == "__main__":
     # dev = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/dev.tsv"
     # test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/test.tsv"
 
-    # modelPath = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/"
+    # modelPath = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/allModels/"
 
     # #process the data
     # train = readData(train)
@@ -215,8 +224,8 @@ if __name__ == "__main__":
     # models = []
 
     # learningRate = [0.01, 0.001, 0.0001]
-    # modelDim = [5, 26, 52, 78, 104, 130]
-    # epochs = [5, 10, 20, 30, 40, 50]
+    # modelDim = [5, 26, 52, 78, 104, 130, 156, 182]
+    # epochs = [5, 10, 20, 30, 40, 50, 60, 70, 80]
 
     # index = 1
 
@@ -227,52 +236,41 @@ if __name__ == "__main__":
 
     #     accuracy = findAccuracy(model, [lr, epoch, dMod], dev)
 
-    #     models.append((accuracy, [lr, epoch, dMod], model))
+    #     modelName = f"{accuracy}_lr{lr}_e{epoch}_d{dMod}"
+
+    #     torch.save(model.state_dict(), modelPath+f"{modelName}.pth")
         
+    #     models.append((accuracy, [lr, epoch, dMod], modelName))
+
     #     index += 1
         
         
     # modelsByAccuracy = sorted(models, key=lambda x:x[0])
-    # weakestModel = modelsByAccuracy[0]
-    # strongestModel = modelsByAccuracy[-1]
-    # moderateModel = modelsByAccuracy[int(len(modelsByAccuracy)/2)]
-
-
-    # print("gridSearch complete.")
-    # print(f'strongestModel: lr={strongestModel[1][0]}, epochs={strongestModel[1][1]}, modelDim={strongestModel[1][2]}')
-    # print(f"Dev accuracy: {strongestModel[0]}")
-    # torch.save(strongestModel[2].state_dict(), modelPath+"strongestModel.pth")    
-
-    # print(f'moderateModel: lr={moderateModel[1][0]}, epochs={moderateModel[1][1]}, modelDim={moderateModel[1][2]}')
-    # print(f"Dev accuracy: {moderateModel[0]}")
-    # torch.save(moderateModel[2].state_dict(), modelPath+"moderateModel.pth")    
-
-    # print(f'weakestModel: lr={weakestModel[1][0]}, epochs={weakestModel[1][1]}, modelDim={weakestModel[1][2]}')
-    # print(f"Dev accuracy: {weakestModel[0]}")
-    # torch.save(weakestModel[2].state_dict(), modelPath+"weakestModel.pth")   
 
     # with open("gridSearchLog.tsv", "w+") as f:
-    #     f.write("accuracy\tlr\tepochs\tmodeDim\n")
-    #     for accuracy, params, model in modelsByAccuracy:
-    #         f.write(f"{accuracy}\t{params[0]}\t{params[1]}\t{params[2]}\n")
+    #     f.write("accuracy\tlr\tepochs\tmodeDim\tmodelName\n")
+    #     for accuracy, params, name in modelsByAccuracy:
+    #         f.write(f"{accuracy}\t{params[0]}\t{params[1]}\t{params[2]}\t{name}\n")
         
     #     f.close()
 
 
     #run this section if you're evaluating on Catalan ---------------------------------------------------------
-    # strongestModel: lr=0.01, epochs=50, modelDim=78
-    # Dev accuracy: 0.768
-    # moderateModel: lr=0.001, epochs=5, modelDim=52
-    # Dev accuracy: 0.7214
-    #weakestModel: lr=0.01, epochs=40, modelDim=5
 
-    model = feedForward(78).double()
-    stateDict = torch.load("strongestModel.pth")
+    model = feedForward(182).double()
+    stateDict = torch.load("0.7708_lr0.001_e60_d182.pth")
     model.load_state_dict(stateDict)
     model.eval()
 
-    test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Catalan/allSlices.tsv"
+    #catalan
+    # test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Catalan/allSlices.tsv"
+    # test = readData(test)
+    #EvalOnData(model, test, "moderateCatalanPreds.tsv", "C")
+
+
+    #spanish
+    test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/test.tsv"
     test = readData(test)
+    EvalOnData(model, test, "bestSpanishPreds.tsv", "S")
 
-    EvalCatalan(model, test, "strongCatalanPreds.tsv")
-
+    
