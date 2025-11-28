@@ -27,10 +27,10 @@ o	Extract Vowels
 			o	        n=24,
 			o	        low_lim=50,
 			o	        hi_lim=8000,
-			o	        sample_factor=2,
+			o	        sample_factor=1,
 			o	        strict=False,
 			o	        )
-		•	Reduce dimensionality by averaging over the time dimension. The result is a (1x53) column vector, where 53 represents the filler banks.
+		•	Reduce dimensionality by averaging over the time dimension. The result is a (1x26) column vector, where 26 represents the filler banks.
 
 	x	Inclusion Criteria
 		•	Files that the Montral Forced Aligner could not straightforwardly align were thrown out
@@ -52,3 +52,15 @@ o	Split details
 			o	test: 3920, 560 per vowel, 28 speakers (M=13, F=15)
 
 
+o	Model Details
+	x	Simple feedforward
+		•	3 hidden layers
+		•	ReLU after first and second layers
+		•	Adam optimizer
+		•	CrossEntropyLoss
+		•	Float64 model, to work with the data in its original scale
+		•	batchSize=32
+		•	model params optimized with gridSearch over dev accuracy:
+			o	lr=[0.01, 0.001, 0.0001]
+			o	modelDim = [5, 26, 52, 78, 104]
+			o	epochs=[5, 10, 20, 30, 40, 50]
