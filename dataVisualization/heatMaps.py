@@ -3,9 +3,13 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
-dataFile = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/CatalanPreds.tsv"
+#catalan
+dataFile = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/moderateCatalanPreds.tsv"
 data = pd.read_csv(dataFile, sep="\t").iloc[:, :-2]
+
+#spanish
+# dataFile = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/moderateSpanishPreds.tsv"
+# data = pd.read_csv(dataFile, sep="\t")
 
 trueCol = "goldLabel"
 predCol = "predictedLabel"
@@ -30,9 +34,18 @@ print(countsDF)
 print("Probs:")
 print(avgProbDF)
 
+#for plotting catalan
 plt.figure(figsize=(8, 6)) # Adjust figure size as needed
 sns.heatmap(countsDF, annot=True, cmap='viridis', fmt=".0f")
 plt.title('L2 Catalan Vowel Predictions')
 plt.xlabel("Predicted Spanish Vowels")
 plt.ylabel("True Catalan Vowels")
-plt.show()
+plt.savefig("/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/dataVisualization/heatMaps/moderateCatalanHeatMap.png")
+
+#for plotting spanish
+# plt.figure(figsize=(8, 6)) # Adjust figure size as needed
+# sns.heatmap(countsDF, annot=True, cmap='viridis', fmt=".0f")
+# plt.title('Spanish Vowel Predictions')
+# plt.xlabel("Predicted Spanish Vowels")
+# plt.ylabel("True Spanish Vowels")
+# plt.savefig("/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/dataVisualization/heatMaps/moderateSpanishHeatMap.png")
