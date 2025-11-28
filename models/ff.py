@@ -197,77 +197,82 @@ def EvalCatalan(model, catalanData, outPutPath):
 
 if __name__ == "__main__":
     #run this section if you're training ---------------------------------------------------------
-    train = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/train.tsv"
-    dev = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/dev.tsv"
-    test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/test.tsv"
+    # train = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/train.tsv"
+    # dev = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/dev.tsv"
+    # test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/test.tsv"
 
-    modelPath = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/"
+    # modelPath = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/"
 
-    #process the data
-    train = readData(train)
-    dev = readData(dev)
-    test = readData(test)
+    # #process the data
+    # train = readData(train)
+    # dev = readData(dev)
+    # test = readData(test)
 
-    #set your model args here
-    #learning rate, numEpochs, dmodel
+    # #set your model args here
+    # #learning rate, numEpochs, dmodel
 
-    #grid search
-    models = []
+    # #grid search
+    # models = []
 
-    learningRate = [0.01, 0.001, 0.0001]
-    modelDim = [5, 26, 52, 78, 104, 130]
-    epochs = [5, 10, 20, 30, 40, 50]
+    # learningRate = [0.01, 0.001, 0.0001]
+    # modelDim = [5, 26, 52, 78, 104, 130]
+    # epochs = [5, 10, 20, 30, 40, 50]
 
-    index = 1
+    # index = 1
 
-    for lr, dMod, epoch in product(learningRate, modelDim, epochs):
-        print(f"Round: {index} of {len(learningRate)*len(modelDim)*len(epochs)}")
-        print(f"Trying: modelDim={dMod}, lr={lr}, epochs={epoch}")
-        model = trainModel([lr, epoch, dMod], train, dev)
+    # for lr, dMod, epoch in product(learningRate, modelDim, epochs):
+    #     print(f"Round: {index} of {len(learningRate)*len(modelDim)*len(epochs)}")
+    #     print(f"Trying: modelDim={dMod}, lr={lr}, epochs={epoch}")
+    #     model = trainModel([lr, epoch, dMod], train, dev)
 
-        accuracy = findAccuracy(model, [lr, epoch, dMod], dev)
+    #     accuracy = findAccuracy(model, [lr, epoch, dMod], dev)
 
-        models.append((accuracy, [lr, epoch, dMod], model))
+    #     models.append((accuracy, [lr, epoch, dMod], model))
         
-        index += 1
+    #     index += 1
         
         
-    modelsByAccuracy = sorted(models, key=lambda x:x[0])
-    weakestModel = modelsByAccuracy[0]
-    strongestModel = modelsByAccuracy[-1]
-    moderateModel = modelsByAccuracy[int(len(modelsByAccuracy)/2)]
+    # modelsByAccuracy = sorted(models, key=lambda x:x[0])
+    # weakestModel = modelsByAccuracy[0]
+    # strongestModel = modelsByAccuracy[-1]
+    # moderateModel = modelsByAccuracy[int(len(modelsByAccuracy)/2)]
 
 
-    print("gridSearch complete.")
-    print(f'strongestModel: lr={strongestModel[1][0]}, epochs={strongestModel[1][1]}, modelDim={strongestModel[1][2]}')
-    print(f"Dev accuracy: {strongestModel[0]}")
-    torch.save(model.state_dict(), modelPath+"strongestModel.pth")    
+    # print("gridSearch complete.")
+    # print(f'strongestModel: lr={strongestModel[1][0]}, epochs={strongestModel[1][1]}, modelDim={strongestModel[1][2]}')
+    # print(f"Dev accuracy: {strongestModel[0]}")
+    # torch.save(strongestModel[2].state_dict(), modelPath+"strongestModel.pth")    
 
-    print(f'moderateModel: lr={moderateModel[1][0]}, epochs={moderateModel[1][1]}, modelDim={moderateModel[1][2]}')
-    print(f"Dev accuracy: {moderateModel[0]}")
-    torch.save(model.state_dict(), modelPath+"moderateModel.pth")    
+    # print(f'moderateModel: lr={moderateModel[1][0]}, epochs={moderateModel[1][1]}, modelDim={moderateModel[1][2]}')
+    # print(f"Dev accuracy: {moderateModel[0]}")
+    # torch.save(moderateModel[2].state_dict(), modelPath+"moderateModel.pth")    
 
-    print(f'weakestModel: lr={weakestModel[1][0]}, epochs={weakestModel[1][1]}, modelDim={weakestModel[1][2]}')
-    print(f"Dev accuracy: {weakestModel[0]}")
-    torch.save(model.state_dict(), modelPath+"weakestModel.pth")   
+    # print(f'weakestModel: lr={weakestModel[1][0]}, epochs={weakestModel[1][1]}, modelDim={weakestModel[1][2]}')
+    # print(f"Dev accuracy: {weakestModel[0]}")
+    # torch.save(weakestModel[2].state_dict(), modelPath+"weakestModel.pth")   
 
-    with open("gridSearchLog.tsv", "w+") as f:
-        f.write("accuracy\tlr\tepochs\tmodeDim")
-        for accuracy, params, model in modelsByAccuracy:
-            f.write(f"{accuracy}\t{params[0]}\t{params[1]}\t{params[2]}\n")
+    # with open("gridSearchLog.tsv", "w+") as f:
+    #     f.write("accuracy\tlr\tepochs\tmodeDim\n")
+    #     for accuracy, params, model in modelsByAccuracy:
+    #         f.write(f"{accuracy}\t{params[0]}\t{params[1]}\t{params[2]}\n")
         
-        f.close()
+    #     f.close()
 
 
     #run this section if you're evaluating on Catalan ---------------------------------------------------------
-    #model args = [lr=0.01, modelDim=40, epochs=104]
-    # model = feedForward(104).double()
-    # stateDict = torch.load("GridSearchOptimized.pth")
-    # model.load_state_dict(stateDict)
-    # model.eval()
+    # strongestModel: lr=0.01, epochs=50, modelDim=78
+    # Dev accuracy: 0.768
+    # moderateModel: lr=0.001, epochs=5, modelDim=52
+    # Dev accuracy: 0.7214
+    #weakestModel: lr=0.01, epochs=40, modelDim=5
 
-    # test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Catalan/allSlices.tsv"
-    # test = readData(test)
+    model = feedForward(78).double()
+    stateDict = torch.load("strongestModel.pth")
+    model.load_state_dict(stateDict)
+    model.eval()
 
-    # EvalCatalan(model, test, "GSCatalanPreds.tsv")
+    test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Catalan/allSlices.tsv"
+    test = readData(test)
+
+    EvalCatalan(model, test, "strongCatalanPreds.tsv")
 
