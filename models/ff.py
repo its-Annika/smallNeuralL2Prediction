@@ -7,12 +7,13 @@ from torch import optim
 from torch.utils.data import DataLoader, TensorDataset
 import numpy as np
 import csv
+from itertools import product
 
 #model
 class feedForward(nn.Module):
 
     #when evaling on Catalan, but the params here
-    def __init__(self, inputDim=26, modelDim=52, numVowels=5):
+    def __init__(self, modelDim, inputDim=26, numVowels=5):
         
         super(feedForward, self).__init__()
 
@@ -45,12 +46,8 @@ def trainModel(modelArgs, trainData, devData):
     
     #model args = lr, num epochs, modeDim 
 
-    #these should be fixed
-    inputDim = 26
-    numVowels = 5
-
     #initalize the model
-    model = feedForward(inputDim, modelArgs[2], numVowels)
+    model = feedForward(modelArgs[2])
     model = model.double()
 
     #optimizer
@@ -81,21 +78,21 @@ def trainModel(modelArgs, trainData, devData):
         
 
         avgLoss = epochLoss/len(trainData)
-        print(f"Epoch {epoch+1}, Avg. Train Loss {avgLoss:.4f}")
-        trainAccuracy = findAccuracy(model, trainData)
-        print(f"Epoch {epoch+1}, Avg. Train Accuracy {trainAccuracy:.4f}")        
+        trainAccuracy = findAccuracy(model, modelArgs, trainData)
+        # print(f"Epoch {epoch+1}, Avg. Train Loss {avgLoss:.4f}")
+        # print(f"Epoch {epoch+1}, Avg. Train Accuracy {trainAccuracy:.4f}")        
 
-        devLoss = evalModel(model, devData)
-        print(f"Epoch {epoch+1}, Avg. Dev Loss {devLoss:.4f}")
-        devAccuracy = findAccuracy(model, devData)
-        print(f"Epoch {epoch+1}, Avg. Dev Accuracy {devAccuracy:.4f}")    
+        devLoss = evalModel(model, modelArgs, devData)
+        devAccuracy = findAccuracy(model, modelArgs, devData)
+        # print(f"Epoch {epoch+1}, Avg. Dev Loss {devLoss:.4f}")
+        # print(f"Epoch {epoch+1}, Avg. Dev Accuracy {devAccuracy:.4f}")    
     
     model.eval()
     return model
 
 
 #find the loss of another set
-def evalModel(model, data):
+def evalModel(model, modelArgs, data):
     model.eval()
     totalLoss = 0
     lossFN = nn.CrossEntropyLoss()
@@ -113,7 +110,7 @@ def evalModel(model, data):
 
 
 #compute accuracy
-def findAccuracy(model, data):
+def findAccuracy(model, modelArgs, data):
     model.eval()
     corectVowels = 0
     totalVowels = 0
@@ -201,33 +198,59 @@ def EvalCatalan(model, catalanData, outPutPath):
 
 if __name__ == "__main__":
     #run this section if you're training ---------------------------------------------------------
-    # train = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/train.tsv"
-    # dev = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/dev.tsv"
-    # test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/test.tsv"
+    train = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/train.tsv"
+    dev = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/dev.tsv"
+    test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Spanish/test.tsv"
 
-    # modelPath = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/Spanish.pth"
+    modelPath = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/models/GridSearchOptimized.pth"
 
-    # #process the data
-    # train = readData(train)
-    # dev = readData(dev)
-    # test = readData(test)
+    #process the data
+    train = readData(train)
+    dev = readData(dev)
+    test = readData(test)
 
-    # #set your model args here
-    # #gridSearch to come
-    # #learning rate, numEpochs, dmodel
-    # modelArgs = [0.001, 50, 52]
-    # model = trainModel(modelArgs, train, dev)
-    # torch.save(model.state_dict(), modelPath)    
+    #set your model args here
+    #learning rate, numEpochs, dmodel
+
+    #grid search
+    bestAccuracy = 0
+    bestConfig = []
+    bestModel = []
+
+    learningRate = [0.01, 0.001, 0.0001]
+    modelDim = [5, 26, 52, 78, 104]
+    epochs = [5, 10, 20, 30, 40, 50]
+
+    index = 1
+
+    for lr, dMod, epoch in product(learningRate, modelDim, epochs):
+        print(f"Round: {index} of {len(learningRate)*len(modelDim)*len(epochs)}")
+        print(f"Trying: modelDim={dMod}, lr={lr}, epochs={epoch}")
+        model = trainModel([lr, epoch, dMod], train, dev)
+
+        accuracy = findAccuracy(model, [lr, epoch, dMod], dev)
+
+        if accuracy > bestAccuracy:
+            bestAccuracy = accuracy
+            bestConfig = [lr, epoch, dMod]
+            bestModel = model
+        
+        index += 1
+    
+    print("gridSearch complete.")
+    print(f'best config: lr={bestConfig[0]}, modelDim={bestConfig[1]}, epochs={bestConfig[2]}')
+    print(f"Dev accuracy: {bestAccuracy}")
+    torch.save(model.state_dict(), modelPath)    
 
 
     #run this section if you're evaluating on Catalan ---------------------------------------------------------
-    model = feedForward().double()
-    stateDict = torch.load("Spanish.pth")
-    model.load_state_dict(stateDict)
-    model.eval()
+    # model = feedForward().double()
+    # stateDict = torch.load("Spanish.pth")
+    # model.load_state_dict(stateDict)
+    # model.eval()
 
-    test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Catalan/allSlices.tsv"
-    test = readData(test)
+    # test = "/Users/annikashankwitz/Desktop/smallNeuralL2Prediction/vowelSlices/Catalan/allSlices.tsv"
+    # test = readData(test)
 
-    EvalCatalan(model, test, "CatalanPreds.tsv")
+    # EvalCatalan(model, test, "CatalanPreds.tsv")
 
